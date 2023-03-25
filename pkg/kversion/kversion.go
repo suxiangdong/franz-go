@@ -963,6 +963,10 @@ var max340 = nextMax(max330, func(v listenerKeys) listenerKeys {
 var (
 	maxStable = max340
 	maxTip    = nextMax(maxStable, func(v listenerKeys) listenerKeys {
-		return maxStable
+		v[1].inc() // 14 fetch // KAFKA-13369 7146ac57ba9 KIP-405
+		v[1].inc() // 15 fetch // KAFKA-14617 79b5f7f1ce2 KIP-903
+
+		v[56].inc() // 3 alter partition // KAFKA-14617 8c88cdb7186b1d594f991eb324356dcfcabdf18a KIP-903
+		return v
 	})
 )

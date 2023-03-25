@@ -182,6 +182,10 @@ var (
 	FetchSessionTopicIDError           = &Error{"FETCH_SESSION_TOPIC_ID_ERROR", 106, true, "The fetch session encountered inconsistent topic ID usage."}
 	IneligibleReplica                  = &Error{"INELIGIBLE_REPLICA", 107, false, "The new ISR contains at least one ineligible replica."}
 	NewLeaderElected                   = &Error{"NEW_LEADER_ELECTED", 108, false, "The AlterPartition request successfully updated the partition state but the leader has changed."}
+	OffsetMovedToTieredStorage         = &Error{"OFFSET_MOVED_TO_TIERED_STORAGE", 109, false, "The requested offset is moved to tiered storage."}
+	FencedMemberEpoch                  = &Error{"FENCED_MEMBER_EPOCH", 110, false, "The member epoch is fenced by the group coordinator. The member must abandon all its partitions and rejoin."}
+	UnreleasedInstanceID               = &Error{"UNRELEASED_INSTANCE_ID", 111, false, "The instance ID is still used by another member in the consumer group. That member must leave first."}
+	UnsupportedAssignor                = &Error{"UNSUPPORTED_ASSIGNOR", 112, false, "The assignor or its version range is not supported by the consumer group."}
 )
 
 var code2err = map[int16]error{
