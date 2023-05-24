@@ -3,7 +3,6 @@ package plain
 
 import (
 	"context"
-	"errors"
 
 	"github.com/twmb/franz-go/pkg/sasl"
 )
@@ -53,8 +52,5 @@ func (fn plain) Authenticate(ctx context.Context, _ string) (sasl.Session, []byt
 type session struct{}
 
 func (session) Challenge(resp []byte) (bool, []byte, error) {
-	if len(resp) != 0 {
-		return false, nil, errors.New("unexpected data in plain response")
-	}
 	return true, nil, nil
 }
